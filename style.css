@@ -1,0 +1,263 @@
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://example.com/MaterialIcons-Regular.eot);
+    /* For IE6-8 */
+    src: local('Material Icons'),
+        local('MaterialIcons-Regular'),
+        url(https://example.com/MaterialIcons-Regular.woff2) format('woff2'),
+        url(https://example.com/MaterialIcons-Regular.woff) format('woff'),
+        url(https://example.com/MaterialIcons-Regular.ttf) format('truetype');
+}
+
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    cursor: pointer;
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+
+    /* Support for IE. */
+    font-feature-settings: 'liga';
+}
+
+.md-light {
+    color: rgba(255, 255, 255, 1);
+}
+
+.material-symbols-outlined {
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 48
+}
+
+
+html {
+    font-size: 62.5%;
+    height: 100%;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    /* 16px */
+
+    height: 100%;
+    min-width: 40rem;
+    font-size: 1.6rem;
+    font-family: sans-serif;
+}
+
+main {
+
+    height: 100%;
+    width: 100%;
+}
+
+
+
+.player-cont {
+    width: 90rem;
+    height: 50rem;
+    background-color: rgb(0, 0, 0);
+}
+
+.info {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    justify-content: end;
+    margin-top: 5rem;
+    border-radius: 0.7rem;
+    overflow: hidden;
+
+}
+
+.img-cont {
+    overflow: hidden;
+
+
+
+}
+
+img {
+    position: absolute;
+
+
+    z-index: 1;
+    width: 60rem;
+
+}
+
+img:hover {
+
+    filter: opacity(70%);
+}
+
+.track-inf {
+    color: white;
+    width: 12rem;
+    height: 30rem;
+
+}
+
+.txt-inf {
+    padding: 1rem 0;
+    margin: 0 1rem;
+}
+
+.controls {
+    position: relative;
+    z-index: 2;
+    margin: 1rem;
+    height: 6.5rem;
+    width: 100%;
+    padding: 2rem 0;
+
+}
+
+.control-btn {
+    color: rgb(255, 255, 255);
+
+}
+
+.control-btn:hover {
+
+    color: rgb(95, 95, 95);
+}
+
+.buttons {
+    width: 95%;
+}
+
+
+
+/* 
+/* get rid of the native appearance for the line */
+input[type="range"] {
+    position: relative;
+    /* appearance: none; */
+    -moz-appearance: none;
+    /* -webkit-appearance: none; */
+    -ms-progress-appearance: none;
+    outline: none;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.7);
+    height: 0.4rem;
+    border-radius: 0.1rem;
+    accent-color: red;
+}
+
+input[type="range"]::-moz-range-thumb {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    -ms-progress-appearance: none;
+    background: white;
+    border: none;
+    outline: none;
+}
+
+input[type="range"]::-ms-thumb {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    -ms-progress-appearance: none;
+    background: white;
+    border: none;
+    outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    -ms-progress-appearance: none;
+    background: white;
+    border: none;
+    outline: none;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 100%;
+}
+
+
+
+/* progress color */
+
+
+input[type="range"]::-moz-range-progress {
+    background-color: #ff1616;
+    height: 0.4rem;
+}
+
+/* input[id="volume-tracker"]::-moz-range-progress {
+    background-color: #8000ff;
+    height: 0.4rem;
+} */
+
+#main-tracker {
+    margin-bottom: 0.7rem;
+    width: 97%;
+}
+
+#volume-tracker {
+    width: 6rem;
+}
+
+
+.flex {
+    display: flex;
+}
+
+.fl-rw {
+    flex-direction: row;
+}
+
+.fl-cl {
+    flex-direction: column;
+}
+
+.fl-jc-cen {
+    justify-content: center;
+}
+
+.fl-jc-sb {
+    justify-content: space-between;
+}
+
+.fl-jc-sa {
+    justify-content: space-between;
+}
+
+.fl-al-cen {
+    align-items: center;
+}
+
+.wrap {
+    flex-wrap: wrap;
+}
