@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="header">
+            <h2>Student Registeration form </h2>
+        </div>
+        <form id="form" class="form">
+            <div class="form-control">
+                <label for="firstname">First-name</label>
+                <input type="text" placeholder="firstname" id="firstname" />
+
+                <small>Error message</small>
+            </div>
+            <div class="form-control">
+                <label for="middlename">Middle-name</label>
+                <input type="text" placeholder="middlename" id="username" />
+
+                <small>Error message</small>
+            </div>
+            <div class="form-control">
+                <label for="lastname">Last-Name</label>
+                <input type="text" placeholder="lastname" id="lastname" />
+
+                <small>Error message</small>
+            </div>
+            <div class="form-control">
+                <label for="course">Course:</label>
+                <select name="course" id="course">
+                    <option value="">Select a course</option>
+                    <option value="computerscience">Computer Science</option>
+                    <option value="socialstudies">Social Studies</option>
+                </select>
+
+                <small>Error message</small>
+            </div>
+            <div class="form-control">
+                <label for="gender">Gender:</label>
+
+                <input type="radio" name="gender" id="gender" value="male">
+
+                <small>Error message</small>
+            </div>
+            <div class="form-control">
+                <label for="phone">Phone</label>
+                <input type="tel" placeholder="+91" id="phone" />
+
+                <small>Error message</small>
+            </div>
+            <div class="form-control">
+                <label for="phone">Phone</label>
+                <input type="tel" placeholder="+91" id="phone" />
+
+                <small>Error message</small>
+            </div>
+            <div class="form-control">
+                <label for="phone">Current Address</label>
+                <textarea name="current-address" id="current-address" cols="65" rows="5"></textarea>
+
+                <small>Error message</small>
+            </div>
+
+
+
+
+
+
+            <div class="form-control">
+                <label for="email">Email</label>
+                <input type="email" placeholder="E-mail" id="email" />
+
+                <small>Error message</small>
+            </div>
+            <div class="form-control">
+                <label for="username">Password</label>
+                <input type="password" placeholder="Password" id="password" />
+
+                <small>Error message</small>
+            </div>
+            <div class="form-control">
+                <label for="username">Password check</label>
+                <input type="password" placeholder="Password two" id="password2" />
+
+                <small>Error message</small>
+            </div>
+            <button>register</button>
+        </form>
+    </div>
+
+
+
+
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
