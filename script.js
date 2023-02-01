@@ -30,34 +30,14 @@ let passwordState = true;
 let password2State = true;
 
 
-form.addEventListener('submit', e => {
-    e.preventDefault();
 
-    allError.forEach(element => {
-        element.setAttribute('style', 'visibility:hidden;')
-    });
-    console.log('submitted');
-    checkForName(firstname);
-    checkForName(middlename);
-    checkForName(lastname);
-
-    checkForName(email);
-    checkForName(contact);
-    checkForName(password);
-    checkForName(password2);
-    checkForName(course);
-    checkForName(gender);
-
-
-    // checkInputs();
-});
 const empty = /\s+/g;
 const checkForName = (input) => {
     switch (input) {
         case firstname:
         case middlename:
         case lastname:
-            firstnameState = !empty.test(input.value) && /[a-zA-Z]{8,20}/g.test(input.value);
+            firstnameState = !empty.test(input.value) && /[a-zA-Z]{3,20}/g.test(input.value);
             firstnameState || errorDisplay(input);
             console.log('firstname triggered');
             return firstnameState
@@ -81,7 +61,7 @@ const checkForName = (input) => {
             return emailState
 
         case contact:
-            contactState = /[0-9]?\+{7-12}/g.test(input.value);
+            contactState = /[0-9]{7,20}/g.test(input.value);
             contactState || errorDisplay(input);
             console.log('tel');
             return contactState
@@ -92,15 +72,26 @@ const checkForName = (input) => {
 
             return passwordState
         case password2:
+
+
             if (password2.value !== password.value) {
                 errorDisplay(input)(`passwords don't match babe!`)
                 password2State = false;
             } else if (password2.value === password.value && !empty.test(input.value) && /[a-zA-Z0-9]{8,20}/g.test(input.value)) {
                 password2State = true;
             }
+            // password2.value !== password.value ? errorDisplay(input)(`passwords don't match babe!`) : password2.value === password.value ?:;
+            // passwordState || errorDisplay(input);
+            // password2.value !== password.value || errorDisplay(input)(`passwords don't match babe!`)
             return password2State
+
+
+
+
+
     }
-};
+
+}
 
 
 const errorDisplay = (input) => {
@@ -111,7 +102,42 @@ const errorDisplay = (input) => {
     }
 
 }
+const logInfo = () => {
+    console.log(`
+this user's details are as below:
+First name:${firstname}
+Middle name:${middlename}
+course of study:${course}
+last name:${lastname}
+gender:${gender}
+phone number:${contact}
+address:${address}
+email address:${email}
+password${password}
 
+`);
+}
+form.addEventListener('submit', e => {
+    e.preventDefault();
+
+    allError.forEach(element => {
+        element.setAttribute('style', 'visibility:hidden;')
+    });
+    console.log('submitted');
+    checkForName(firstname);
+    checkForName(middlename);
+    checkForName(lastname);
+
+    checkForName(email);
+    checkForName(contact);
+    checkForName(password);
+    checkForName(password2);
+    checkForName(course);
+    checkForName(gender);
+    firstnameState && middlenameState && lastnameState && courseState && genderState && contactState && addressState && emailState && passwordState && password2State && logInfo();
+
+    // checkInputs();
+});
 // const checkForName = (input) => {
 //     return !empty.test(input.value) && /[a-zA-Z]{3,20}/g.test(input.value)
 
