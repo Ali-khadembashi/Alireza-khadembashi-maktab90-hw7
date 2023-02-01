@@ -5,7 +5,7 @@
 }
 
 body {
-
+    min-width: 508px;
     font-family: 'Open Sans', sans-serif;
     display: flex;
     align-items: center;
@@ -13,6 +13,31 @@ body {
     min-height: 100vh;
     margin: 0;
     font-size: 14px;
+}
+
+input[type="radio"] {
+
+    display: inline;
+    width: 15px;
+    height: 15px;
+    accent-color: #1c55ff;
+}
+
+
+.inline-radio {
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+    outline: solid rgb(255, 242, 0);
+}
+
+.radio-input {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    outline: solid red;
+
 }
 
 .container {
@@ -29,7 +54,7 @@ body {
     text-align: center;
 
 
-    padding: 20px 40px;
+    padding: 20px 10px;
 }
 
 
@@ -37,29 +62,33 @@ body {
     margin: 0;
 }
 
-/* .form::before {
+.header::after {
     content: '';
-    width: 10px;
-    height: 10px;
-    background-color: rgb(0, 0, 0);
-    outline: black;
-} */
+    position: relative;
+    left: 30px;
+    margin-top: 10px;
+    width: 85%;
+    height: 2px;
+    display: block;
+    background-color: rgb(255, 255, 255);
 
-.form {
-    padding: 30px 20px;
 }
 
-.form-control {
+.form {
+    padding: 10px 20px;
+}
+
+.input-cont {
     /* margin-bottom: 5px;
     padding-bottom: 5px; */
 }
 
-.form-control label {
+.input-cont label {
     display: inline-block;
     margin-bottom: 1px;
 }
 
-.form-control input {
+.input-cont input {
     border: 2px solid #f0f0f0;
     border-radius: 4px;
     display: block;
@@ -71,11 +100,7 @@ body {
 
 
 
-
-
-
-
-.form-control small {
+.input-cont small {
     color: #e74c3c;
 
 

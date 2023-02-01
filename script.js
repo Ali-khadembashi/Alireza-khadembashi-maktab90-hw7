@@ -1,90 +1,118 @@
 'use strict'
 
 const form = document.getElementById('form');
-const username = document.getElementById('username');
+const firstname = document.getElementById('firstname');
+const middlename = document.getElementById('middlename');
+const course = document.getElementById('course');
+const lastname = document.getElementById('lastname');
+const gender = document.getElementById('gender');
+const contact = document.getElementById('phone');
+const address = document.getElementById('current-address');
 const email = document.getElementById('email');
 const password = document.getElementById('password');
 const password2 = document.getElementById('password2');
+const allError = document.querySelectorAll('small');
+const male = document.getElementById('Male');
+const female = document.getElementById('Female');
+const other = document.getElementById('Other');
+
+
+
+let firstnameState = true;
+let middlenameState = true;
+let lastnameState = true;
+let courseState = true;
+let genderState = true;
+let contactState = true;
+let addressState = true;
+let emailState = true;
+let passwordState = true;
+let password2State = true;
+
 
 form.addEventListener('submit', e => {
     e.preventDefault();
 
-    checkInputs();
+    allError.forEach(element => {
+        element.setAttribute('style', 'visibility:hidden;')
+    });
+    console.log('submitted');
+    checkForName(firstname);
+    checkForName(middlename);
+    checkForName(lastname);
+
+    checkForName(email);
+    checkForName(contact);
+    checkForName(password);
+    checkForName(password2);
+    checkForName(course);
+    checkForName(gender);
+
+
+    // checkInputs();
 });
+const empty = /\s+/g;
+const checkForName = (input) => {
+    switch (input) {
+        case firstname:
+        case middlename:
+        case lastname:
+            firstnameState = !empty.test(input.value) && /[a-zA-Z]{8,20}/g.test(input.value);
+            firstnameState || errorDisplay(input);
+            console.log('firstname triggered');
+            return firstnameState
+        case course:
+            courseState = course.value === 'socialstudies' || course.value === 'computerscience';
 
-function checkInputs() {
-    // trim to remove the whitespaces
-    const usernameValue = username.value.trim();
-    const emailValue = email.value.trim();
-    const passwordValue = password.value.trim();
-    const password2Value = password2.value.trim();
+            courseState || errorDisplay(input)('please select a course!');
+            console.log('here');
+            console.log(course.value);
+            console.log('here');
+            return firstnameState
+        case gender:
+            genderState = male.checked || female.checked || other.checked || false;
+            genderState || document.getElementById('Other').nextElementSibling.setAttribute('style', 'visibility:visible;');
+            console.log('gender state');
+            return contactState
+        case email:
+            emailState = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(input.value);
+            emailState || errorDisplay(input);
+            console.log('mail');
+            return emailState
 
-    if (usernameValue === '') {
-        setErrorFor(username, 'Username cannot be blank');
-    } else {
-        setSuccessFor(username);
+        case contact:
+            contactState = /[0-9]?\+{7-12}/g.test(input.value);
+            contactState || errorDisplay(input);
+            console.log('tel');
+            return contactState
+
+        case password:
+            passwordState = !empty.test(input.value) && /[a-zA-Z0-9]{8,20}/g.test(input.value);
+            passwordState || errorDisplay(input);
+
+            return passwordState
+        case password2:
+            if (password2.value !== password.value) {
+                errorDisplay(input)(`passwords don't match babe!`)
+                password2State = false;
+            } else if (password2.value === password.value && !empty.test(input.value) && /[a-zA-Z0-9]{8,20}/g.test(input.value)) {
+                password2State = true;
+            }
+            return password2State
+    }
+};
+
+
+const errorDisplay = (input) => {
+
+    input.nextElementSibling.setAttribute('style', 'visibility:visible;');
+    return function (message) {
+        input.nextElementSibling.innerHTML = message;
     }
 
-    if (emailValue === '') {
-        setErrorFor(email, 'Email cannot be blank');
-    } else if (!isEmail(emailValue)) {
-        setErrorFor(email, 'Not a valid email');
-    } else {
-        setSuccessFor(email);
-    }
-
-    if (passwordValue === '') {
-        setErrorFor(password, 'Password cannot be blank');
-    } else {
-        setSuccessFor(password);
-    }
-
-    if (password2Value === '') {
-        setErrorFor(password2, 'Password2 cannot be blank');
-    } else if (passwordValue !== password2Value) {
-        setErrorFor(password2, 'Passwords does not match');
-    } else {
-        setSuccessFor(password2);
-    }
 }
 
-function setErrorFor(input, message) {
-    const formControl = input.parentElement;
-    const small = formControl.querySelector('small');
-    formControl.className = 'form-control error';
-    small.innerText = message;
-}
+// const checkForName = (input) => {
+//     return !empty.test(input.value) && /[a-zA-Z]{3,20}/g.test(input.value)
 
-function setSuccessFor(input) {
-    const formControl = input.parentElement;
-    formControl.className = 'form-control success';
-}
-
-function isEmail(email) {
-    return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-// SOCIAL PANEL JS
-const floating_btn = document.querySelector('.floating-btn');
-const close_btn = document.querySelector('.close-btn');
-const social_panel_container = document.querySelector('.social-panel-container');
-
-floating_btn.addEventListener('click', () => {
-    social_panel_container.classList.toggle('visible')
-});
-
-close_btn.addEventListener('click', () => {
-    social_panel_container.classList.remove('visible')
-});
+// }
