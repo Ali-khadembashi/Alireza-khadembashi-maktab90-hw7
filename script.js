@@ -30,8 +30,9 @@ let passwordState = true;
 let password2State = true;
 
 
-
+// regex fpr empty spaces
 const empty = /\s+/g;
+//validator
 const checkForName = (input) => {
     switch (input) {
         case firstname:
@@ -61,7 +62,7 @@ const checkForName = (input) => {
             return emailState
 
         case contact:
-            contactState = /[0-9]{7,20}/g.test(input.value);
+            contactState = /^[0-9]*$/g.test(input.value);
             contactState || errorDisplay(input);
             console.log('tel');
             return contactState
@@ -93,7 +94,7 @@ const checkForName = (input) => {
 
 }
 
-
+//error displayer
 const errorDisplay = (input) => {
 
     input.nextElementSibling.setAttribute('style', 'visibility:visible;');
@@ -103,13 +104,15 @@ const errorDisplay = (input) => {
 
 }
 const logInfo = () => {
+    let newGender;
+    male.checked ? newGender = 'male' : female.checked ? newGender = 'female' : other.checked ? newGender = 'other' : null;
     console.log(`
 this user's details are as below:
 First name:${firstname.value}
 Middle name:${middlename.value}
 course of study:${course.value}
 last name:${lastname.value}
-
+gender is: ${newGender}
 phone number:${contact.value}
 address:${address.value}
 email address:${email.value}
@@ -135,7 +138,7 @@ form.addEventListener('submit', e => {
     checkForName(course);
     checkForName(gender);
     firstnameState && middlenameState && lastnameState && courseState && genderState && contactState && addressState && emailState && passwordState && password2State && logInfo();
-
+    form.reset();
     // checkInputs();
 });
 // const checkForName = (input) => {
