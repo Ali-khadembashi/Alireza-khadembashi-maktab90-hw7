@@ -105,15 +105,15 @@ const errorDisplay = (input) => {
 const logInfo = () => {
     console.log(`
 this user's details are as below:
-First name:${firstname}
-Middle name:${middlename}
-course of study:${course}
-last name:${lastname}
-gender:${gender}
-phone number:${contact}
-address:${address}
-email address:${email}
-password${password}
+First name:${firstname.value}
+Middle name:${middlename.value}
+course of study:${course.value}
+last name:${lastname.value}
+
+phone number:${contact.value}
+address:${address.value}
+email address:${email.value}
+password${password.value}
 
 `);
 }
