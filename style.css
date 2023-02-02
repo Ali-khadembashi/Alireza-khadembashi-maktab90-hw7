@@ -66,7 +66,7 @@ body {
     /* 16px */
 
     height: 100%;
-    min-width: 40rem;
+    min-width: 1270px;
     font-size: 1.6rem;
     font-family: sans-serif;
 }
@@ -310,6 +310,7 @@ table {
     font-size: 1.rem;
     justify-content: space-between;
     width: 78%;
+
 }
 
 tbody {
@@ -330,10 +331,17 @@ tr {
     /* flex-direction: row; */
     justify-content: space-between;
     align-items: center;
+    transition: 0.3s;
+    transform: translateY(0);
+}
+
+.row:hover {
+    color: rgb(108, 108, 108);
 }
 
 
 .td {
+    display: inline-block;
     text-align: center;
     min-width: 50px;
     height: 13rem;
@@ -346,7 +354,8 @@ tr {
 
     /* Move into place */
     transform: translateY(0);
-    overflow: hidden;
+    /* overflow: hidden; */
+    word-break: break-all;
 
 }
 
@@ -365,6 +374,6 @@ button {
 .td:hover {
     background-color: rgba(231, 231, 231, 0.2);
 
-    border-bottom: solid 2px rgb(211, 30, 178);
+    border-bottom: solid 2.7px rgb(211, 30, 178);
 
 }
